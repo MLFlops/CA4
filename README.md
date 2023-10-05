@@ -1,13 +1,13 @@
 # CA4
-# This repository contains a Flask-based web application for user login. The application manages usernames and passwords with an HTML frontend and an SQL backend.
+    # This repository contains a Flask-based web application for user login. The application manages usernames and passwords with an HTML frontend and an SQL backend.
 # Docker Images
-#  The Docker images for this project are as follows:
+    #  The Docker images for this project are as follows:
 
-#    Web Server Image: mlflops/docker_web:1.0
-#    Database Image: mlflops/database_container:2.0
+        # Web Server Image: mlflops/docker_web:1.0
+        # Database Image: mlflops/database_container:2.0
 
 # Running the Docker Compose Stack
-#  To run the Docker Compose stack for this web application, follow these steps:
+    # To run the Docker Compose stack for this web application, follow these steps:
 
 #    1. Clone the Repository:
     git clone https://github.com/yourusername/CA4.git
