@@ -2,7 +2,7 @@ name: Database Workflow
 
 on:
   push:
-    branches: [ "i200716" ]
+    branches: i200716
 
 jobs:
   build:
