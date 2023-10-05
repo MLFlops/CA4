@@ -2,8 +2,9 @@ name: Database Workflow
 
 on:
   push:
-    branches:
-      - 'refs/heads/i200716'
+    branches: ["i200716"]
+  pull_request:
+    branches: ["i200716"]
 
 jobs:
   build:
