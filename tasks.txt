@@ -1,3 +1,0 @@
-Saamiya Mariam: Docker Compose File
-Marrium Jilani: Web Server Service
-Bisma Haroon: Database Service
