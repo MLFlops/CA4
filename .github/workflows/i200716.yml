@@ -1,0 +1,45 @@
+name: Database Workflow
+
+on:
+  push:
+    branches: [ "i200716" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up MySQL Service
+        uses: mysql/actions/setup-mysql@v2
+        with:
+          mysql-version: '8.0'
+          password: ${{secrets.MYSQL_ROOT_PASSWORD}}
+
+      - name: Build Docker Image
+        run: |
+          docker build -t my_database_image:latest .
+          docker tag my_database_image:latest mlflops/my_database_image:latest
+
+      - name: Push Docker Image
+        run: |
+          docker login -u my_dockerhub_username -p ${{secrets.DOCKERHUB_TOKEN}}
+          docker push mlflops/my_database_image:latest
+
+      - name: Document Steps
+        run: |
+          echo "Step 1: Set up MySQL Service"
+          echo "Step 2: Build Docker Image"
+          echo "Step 3: Push Docker Image"
+
+      - name: Maintain Code on GitHub
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "Update Docker Image"
+          git push
+
+
