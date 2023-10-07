@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  web:
+    image: mlflops/docker_web:1
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URI=mysql://root:bmsmlops123@db/user_database
+
+  db:
+    image: mlops/database:2
+    environment:
+      MYSQL_ROOT_PASSWORD: bmsmlops123
+      MYSQL_DATABASE: user_database
+
+networks:
+  default:
+    external:
+      name: webapp_db_network
