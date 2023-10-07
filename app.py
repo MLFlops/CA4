@@ -3,9 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__, template_folder='templates')
-app.secret_key = 'your_secret_key'  # Change this to a secure secret key in production
-
-# Configure SQLite database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:bmsmlops123@db/database'
 db = SQLAlchemy(app)
 
@@ -17,15 +14,10 @@ class User(db.Model):
 @app.route('/')
 def home():
     if 'username' in session:
-        #return f'Hello, {session["username"]}! <a href="/logout">Logout</a>'
         return render_template('welcome.html')
     else:
-        #return 'Welcome to the login page. <a href="/login">Login</a>'
         return render_template('welcome.html')
         
-    
-    
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -42,14 +34,14 @@ def login():
 
     return render_template('login.html')
 
-""" @app.route('/logout')
+# The following route is commented out because it is not used in your current code.
+# Uncomment it if you want to implement a logout functionality.
+"""
+@app.route('/logout')
 def logout():
     session.pop('username', None)
-    return redirect(url_for('home')) """
-
-with app.app_context():
-    db.create_all()
+    return redirect(url_for('home'))
+"""
 
 if __name__ == '__main__':
-    db.create_all()
     app.run(debug=True)
