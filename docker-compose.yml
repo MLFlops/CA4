@@ -7,7 +7,7 @@ networks:
       
 services:
   web:
-    image: mlflops/docker_web:1.0
+    image: mlflops/docker_web:2.0
     ports:
       - "5000:5000"
     depends_on:
