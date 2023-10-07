@@ -6,7 +6,7 @@ app = Flask(__name__, template_folder='templates')
 app.secret_key = 'your_secret_key'  # Change this to a secure secret key in production
 
 # Configure SQLite database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:bmsmlops123@db/database'
 db = SQLAlchemy(app)
 
 class User(db.Model):
@@ -46,6 +46,9 @@ def login():
 def logout():
     session.pop('username', None)
     return redirect(url_for('home')) """
+
+with app.app_context():
+    db.create_all()
 
 if __name__ == '__main__':
     db.create_all()
