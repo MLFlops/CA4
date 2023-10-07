@@ -28,7 +28,10 @@ jobs:
           echo "DATABASE_URI=mysql://root:bmsmlops123@db/user_database" > .env
 
       - name: Create Docker Network
-        run: docker network create webapp_db_network    
+        run: docker network create webapp_db_network  
+
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
          
       - name: Build and Start Docker Containers
         run: docker-compose up --build -d
