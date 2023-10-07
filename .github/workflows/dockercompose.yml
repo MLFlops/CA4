@@ -1,0 +1,51 @@
+name: Docker Compose Automation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        
+      - name: Set up Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install docker-compose
+          
+      - name: Clone Repository
+        run: |
+          git clone https://github.com/yourusername/CA4.git
+          cd CA4
+          
+      - name: Set up Environment Variables
+        run: |
+          echo "DATABASE_URI=mysql://root:bmsmlops123@db/user_database" > .env
+          
+      - name: Build and Start Docker Containers
+        run: docker-compose up --build -d
+        
+      - name: Access Web Application
+        run: echo "Open your web browser and go to http://localhost:5000/ to access the web application."
+        
+  stop:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Set up Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install docker-compose
+          
+      - name: Clone Repository
+        run: |
+          git clone https://github.com/yourusername/CA4.git
+          cd CA4
+          
+      - name: Stop Docker Containers
+        run: docker-compose down
