@@ -1,9 +1,10 @@
 version: '3'
 
 networks:
-  webapp_db_network:
-    external: true
-    
+  default:
+    external:
+      name: webapp_db_network
+      
 services:
   web:
     image: mlflops/docker_web:1.0
@@ -20,7 +21,4 @@ services:
       MYSQL_ROOT_PASSWORD: bmsmlops123
       MYSQL_DATABASE: database
 
-networks:
-  default:
-    external:
-      name: webapp_db_network
+
