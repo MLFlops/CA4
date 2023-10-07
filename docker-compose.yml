@@ -1,5 +1,9 @@
 version: '3'
 
+networks:
+  webapp_db_network:
+    external: true
+    
 services:
   web:
     image: mlflops/docker_web:1
