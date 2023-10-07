@@ -12,7 +12,7 @@ services:
     depends_on:
       - db
     environment:
-      - DATABASE_URI=mysql://root:bmsmlops123@db/user_database
+      - DATABASE_URI=mysql://root:bmsmlops123@db/database
 
   db:
     image: mlflops/database_container:2
