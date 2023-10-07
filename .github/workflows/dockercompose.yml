@@ -20,7 +20,7 @@ jobs:
           
       - name: Clone Repository
         run: |
-          git clone https://github.com/yourusername/CA4.git
+          git clone https://github.com/MLFlops/CA4.git
           cd CA4
           
       - name: Set up Environment Variables
@@ -44,7 +44,7 @@ jobs:
           
       - name: Clone Repository
         run: |
-          git clone https://github.com/yourusername/CA4.git
+          git clone https://github.com/MLFlops/CA4.git
           cd CA4
           
       - name: Stop Docker Containers
