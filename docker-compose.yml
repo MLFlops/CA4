@@ -15,7 +15,7 @@ services:
       - DATABASE_URI=mysql://root:bmsmlops123@db/user_database
 
   db:
-    image: mlops/database:2
+    image: mlops/database_container:2
     environment:
       MYSQL_ROOT_PASSWORD: bmsmlops123
       MYSQL_DATABASE: user_database
