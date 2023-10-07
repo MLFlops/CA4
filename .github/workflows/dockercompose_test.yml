@@ -26,6 +26,7 @@ jobs:
       - name: Set up Environment Variables
         run: |
           echo "DATABASE_URI=mysql://root:bmsmlops123@db/user_database" > .env
+
           
       - name: Build and Start Docker Containers
         run: docker-compose up --build -d
