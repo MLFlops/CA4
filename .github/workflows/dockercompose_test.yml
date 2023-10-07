@@ -27,7 +27,9 @@ jobs:
         run: |
           echo "DATABASE_URI=mysql://root:bmsmlops123@db/user_database" > .env
 
-          
+      - name: Create Docker Network
+        run: docker network create webapp_db_network    
+         
       - name: Build and Start Docker Containers
         run: docker-compose up --build -d
         
@@ -38,6 +40,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+
+      - name: Create Docker Network
+        run: docker network create webapp_db_network  
+        
       - name: Set up Docker Compose
         run: |
           sudo apt-get update
