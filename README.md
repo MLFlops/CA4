@@ -3,8 +3,8 @@
 # Docker Images
     #  The Docker images for this project are as follows:
 
-        # Web Server Image: mlflops/docker_web:1.0
-        # Database Image: mlflops/database_container:2.0
+        # Web Server Image: mlflops/docker_web:2.0
+        # Database Image: mlflops/database_container:2
 
 # Running the Docker Compose Stack
     # To run the Docker Compose stack for this web application, follow these steps:
