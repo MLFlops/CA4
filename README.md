@@ -15,7 +15,11 @@
 #    2. Update Environment Variables:
     # Before running the Docker Compose stack, you need to set up environment variables. Create a .env file in the root of the repository and add the following:
     # Database connection details
-    DATABASE_URI=mysql://root:bmsmlops123@db/user_database
+    DATABASE_URI=mysql://root:bmsmlops123@db/database
+
+#    3. Create network:
+    docker network create webapp_db_network
+    
 #    3. Build and Start the Docker Containers:
     docker-compose up --build
 #    4. Access the Web Application:
